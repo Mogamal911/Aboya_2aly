@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Aboya, it’s time to master English and never forget it again. Elevate your speaking, vocabulary, and grammar with your interactive AI Tutor.">
+  <title>Aboya — Learn. Practice. Master.</title>
+  <link rel="icon" href="aboya.jpg">
+  <link rel="stylesheet" href="css/styles.css">
+  <script>
+    (function() {
+      try {
+        const settings = localStorage.getItem('lb_settings');
+        if (settings) {
+          const theme = JSON.parse(settings).theme;
+          if (theme) {
+            document.documentElement.setAttribute('data-theme', theme);
+          }
+        }
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body>
+  <a href="#main-content" class="skip-to-content">Skip to main content</a>
+  <div class="app-container" id="app">
+    <!-- Mobile Header -->
+    <header class="mobile-header" id="mobile-header">
+      <button class="hamburger" id="hamburger-btn" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="mobile-logo gradient-text">Aboya 🎙️</div>
+      <div class="mobile-streak" id="mobile-streak"></div>
+    </header>
+
+    <!-- Sidebar Overlay (mobile) -->
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <div class="logo-avatar-row">
+          <img src="aboya.jpg" class="logo-icon-img" alt="Aboya">
+          <div class="logo-title-block">
+            <h1 class="logo-text gradient-text">Aboya</h1>
+            <p class="logo-tagline">Your AI English Tutor</p>
+          </div>
+        </div>
+        <div class="logo-fullname">
+          Master English.<br>Never forget.
+        </div>
+      </div>
+
+      <nav class="sidebar-nav" id="sidebar-nav">
+        <a class="nav-item active" href="#dashboard" data-page="dashboard" id="nav-dashboard">
+          <span class="nav-icon">📊</span>
+          <span class="nav-label">Dashboard</span>
+        </a>
+        <a class="nav-item speaking-highlight" href="#speaking" data-page="speaking" id="nav-speaking">
+          <span class="nav-icon">🎙️</span>
+          <span class="nav-label">Speaking Studio</span>
+          <span class="nav-badge animate-pulse">AI</span>
+        </a>
+        <a class="nav-item" href="#vocabulary" data-page="vocabulary" id="nav-vocabulary">
+          <span class="nav-icon">📚</span>
+          <span class="nav-label">Vocabulary</span>
+        </a>
+        <a class="nav-item" href="#grammar" data-page="grammar" id="nav-grammar">
+          <span class="nav-icon">📝</span>
+          <span class="nav-label">Grammar</span>
+        </a>
+        <a class="nav-item" href="#quiz" data-page="quiz" id="nav-quiz">
+          <span class="nav-icon">🎯</span>
+          <span class="nav-label">Quiz Arena</span>
+        </a>
+        <a class="nav-item" href="#progress" data-page="progress" id="nav-progress">
+          <span class="nav-icon">📈</span>
+          <span class="nav-label">Analytics</span>
+        </a>
+        <a class="nav-item" href="#settings" data-page="settings" id="nav-settings">
+          <span class="nav-icon">⚙️</span>
+          <span class="nav-label">Settings</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="sidebar-xp-display" id="sidebar-xp">
+          <div class="xp-bar-header">
+            <span id="sidebar-level">Level 1</span>
+            <span id="sidebar-xp-text">0 / 100 XP</span>
+          </div>
+          <div class="xp-bar">
+            <div class="xp-bar-fill" id="sidebar-xp-fill" style="width: 0%"></div>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Feathered background portrait -->
+    <div class="bg-portrait" aria-hidden="true"></div>
+
+    <!-- Main Content Area -->
+    <main class="main-content" id="main-content">
+      <!-- Pages are rendered here dynamically -->
+    </main>
+
+    <!-- Notification Container -->
+    <div class="notification-container" id="notification-container"></div>
+  </div>
+
+  <!-- Scripts -->
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
