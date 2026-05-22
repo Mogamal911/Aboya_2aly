@@ -1,4 +1,3 @@
-import { Storage } from './storage.js';
 
   // High-performance HTML Sanitizer to prevent XSS
   function escapeHTML(str) {
@@ -26,7 +25,9 @@ import { Storage } from './storage.js';
 
   // Unified beeper
   function playBeep(success) {
-    if (!Storage || !Storage.getSettings().soundEffects) return;
+    // Use window.Storage lazily to avoid circular import issues
+    const S = window.Storage;
+    if (!S || !S.getSettings().soundEffects) return;
     try {
       const ctx = new (window.AudioContext || window.webkitAudioContext)();
       const osc = ctx.createOscillator();
@@ -54,7 +55,9 @@ import { Storage } from './storage.js';
 
   // Unified chime chord for achievements & milestones
   function playSoundChime(success) {
-    if (!Storage || !Storage.getSettings().soundEffects) return;
+    // Use window.Storage lazily to avoid circular import issues
+    const S = window.Storage;
+    if (!S || !S.getSettings().soundEffects) return;
     try {
       const ctx = new (window.AudioContext || window.webkitAudioContext)();
       const osc = ctx.createOscillator();
@@ -167,3 +170,6 @@ import { Storage } from './storage.js';
     playSoundChime,
     celebrateConfetti
   };
+
+  // Expose to window so lazy references (e.g. in storage.js) can call Utils without circular imports
+  window.Utils = Utils;

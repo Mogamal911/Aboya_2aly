@@ -1,4 +1,3 @@
-import { Utils } from './utils.js';
 import { APP_DATA } from './data.js';
 
 
@@ -119,9 +118,10 @@ import { APP_DATA } from './data.js';
       setJSON(STORAGE_KEYS.MILESTONE, milestoneIndex + 1);
       
       // Cyber-neon celebration feedback!
-      if (Utils) {
-        Utils.playSoundChime(true);
-        Utils.celebrateConfetti();
+      const U = window.Utils;
+      if (U) {
+        U.playSoundChime(true);
+        U.celebrateConfetti();
       }
       
       return true; // Milestone progressed!
@@ -511,3 +511,6 @@ import { APP_DATA } from './data.js';
     getAIBrain, saveAIBrain, updateAIBrainDifficulty, updateSRSVocabQueue, getSRSDueWords,
     resetAll
   };
+
+  // Expose to window so lazy references (e.g. in utils.js) can access it without circular imports
+  window.Storage = Storage;
