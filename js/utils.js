@@ -26,7 +26,7 @@ import { Storage } from './storage.js';
 
   // Unified beeper
   function playBeep(success) {
-    if (!window.Storage || !window.Storage.getSettings().soundEffects) return;
+    if (!Storage || !Storage.getSettings().soundEffects) return;
     try {
       const ctx = new (window.AudioContext || window.webkitAudioContext)();
       const osc = ctx.createOscillator();
@@ -54,7 +54,7 @@ import { Storage } from './storage.js';
 
   // Unified chime chord for achievements & milestones
   function playSoundChime(success) {
-    if (!window.Storage || !window.Storage.getSettings().soundEffects) return;
+    if (!Storage || !Storage.getSettings().soundEffects) return;
     try {
       const ctx = new (window.AudioContext || window.webkitAudioContext)();
       const osc = ctx.createOscillator();

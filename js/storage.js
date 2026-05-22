@@ -1,6 +1,6 @@
 import { Utils } from './utils.js';
 import { APP_DATA } from './data.js';
-import { App } from './app.js';
+
 
   const STORAGE_KEYS = {
     XP: 'lb_xp',
@@ -119,9 +119,9 @@ import { App } from './app.js';
       setJSON(STORAGE_KEYS.MILESTONE, milestoneIndex + 1);
       
       // Cyber-neon celebration feedback!
-      if (window.Utils) {
-        window.Utils.playSoundChime(true);
-        window.Utils.celebrateConfetti();
+      if (Utils) {
+        Utils.playSoundChime(true);
+        Utils.celebrateConfetti();
       }
       
       return true; // Milestone progressed!
@@ -195,7 +195,7 @@ import { App } from './app.js';
 
   function getLearnedCategories() {
     const words = getAllWordStates();
-    const data = window.APP_DATA;
+    const data = APP_DATA;
     if (!data) return [];
     const categories = new Set();
     for (const [id, state] of Object.entries(words)) {
@@ -235,7 +235,7 @@ import { App } from './app.js';
 
   function getCompletedLessonsByLevel(level) {
     const lessons = getAllLessonProgress();
-    const data = window.APP_DATA;
+    const data = APP_DATA;
     if (!data) return 0;
     return data.GRAMMAR_LESSONS.filter(l => l.level === level && lessons[l.id]?.completed).length;
   }
@@ -284,7 +284,7 @@ import { App } from './app.js';
   function checkAchievements() {
     const newlyUnlocked = [];
     const unlocked = getUnlockedAchievements();
-    const data = window.APP_DATA;
+    const data = APP_DATA;
     if (!data) return newlyUnlocked;
 
     const learned = getLearnedWordsCount();

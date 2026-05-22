@@ -4351,3 +4351,7 @@
     SPEAKING_DRILLS,
     ACHIEVEMENTS
   };
+
+  // Expose to window for backward compatibility in legacy checks
+  window.APP_DATA = APP_DATA;
+
